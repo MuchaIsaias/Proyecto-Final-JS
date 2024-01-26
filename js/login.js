@@ -22,7 +22,7 @@ fetch('./js/usuarios.json')
     })
     .catch(error => console.error('Error al guardar el usuario:',error));
 
-let url2 = 'http://localhost:4000/crear-usuario';
+let url2 = 'http://localhost:443/crear-usuario';
 
 registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
