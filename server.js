@@ -54,7 +54,7 @@ app.use(bodyParser.json());
 app.post('/crear-usuario', async (req, res) => {
     try {
         // Obtén la ruta absoluta del archivo usuarios.json
-        const usuariosPath = path.join(__dirname, 'js', 'usuarios.json');
+        const usuariosPath = path.join(__dirname, 'js', '../js/usuarios.json');
 
         // Lee el archivo de usuarios existente
         const usuariosData = await fs.readFile(usuariosPath, 'utf8');
