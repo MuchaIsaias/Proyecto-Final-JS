@@ -45,7 +45,7 @@ const path = require('path'); // Añade esta línea
 const cors = require('cors');
 
 const app = express();
-const port = 443;
+const port = 4000;
 app.use(cors());
 
 app.use(bodyParser.json());
@@ -54,7 +54,7 @@ app.use(bodyParser.json());
 app.post('/crear-usuario', async (req, res) => {
     try {
         // Obtén la ruta absoluta del archivo usuarios.json
-        const usuariosPath = path.join(__dirname, 'js', '../js/usuarios.json');
+        const usuariosPath = path.join(__dirname, 'js', 'usuarios.json');
 
         // Lee el archivo de usuarios existente
         const usuariosData = await fs.readFile(usuariosPath, 'utf8');

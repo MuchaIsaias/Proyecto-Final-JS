@@ -22,7 +22,7 @@ fetch('./js/usuarios.json')
     })
     .catch(error => console.error('Error al guardar el usuario:',error));
 
-let url2 = 'http://localhost:443/crear-usuario';
+let url2 = 'http://localhost:4000/crear-usuario';
 
 registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -43,58 +43,21 @@ registro.addEventListener('submit', (evt) => {
                 body: JSON.stringify(nuevoUsuario),
             };
             let url2 = 'http://localhost:4000/crear-usuario';
-            fetch(url2,opciones)
+            let usuarioExistente = data.find(usuario => usuario.nombre === registro_nombre);
+            if (usuarioExistente) {
+                alert("Nombre de usuario ya existente");
+            }else{
+                fetch(url2,opciones)
                 .then(response => response)
                 .then(data =>{
                     console.log('Usuario guardado exitosamente:', data)
-                    // window.location.reload();
+                    window.location.reload();
                 })
                 .catch(error => console.error('Error al guardar el usuario:', error));
-        })
+            }
+    })
 });
-// let usuarioExistente = todosLosUsuarios.find(usuario => usuario.nombre === registro_nombre);
-        // if (usuarioExistente) {
-        //     alert("Nombre de usuario ya existente");
-        // } else {
-        //     let numberID = todosLosUsuarios.length + 1;
-        //     let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
-        //     todosLosUsuarios.push(nuevoUsuario);
-        //     localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
-        //     window.location.reload();
-        // }
 
-// registro.addEventListener('submit', (evt) => {
-//     evt.preventDefault();
-
-//     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
-//     let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
-    
-//     let todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-//     if (todosLosUsuarios.length === 0) {
-//         let numberID = todosLosUsuarios.length + 1;
-//         let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
-//         todosLosUsuarios.push(nuevoUsuario);
-//         localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
-//         window.location.reload();
-//     } else {
-//         let usuarioExistente = todosLosUsuarios.find(usuario => usuario.nombre === registro_nombre);
-
-//         if (usuarioExistente) {
-//             alert("Nombre de usuario ya existente");
-//         } else {
-//             let numberID = todosLosUsuarios.length + 1;
-//             let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
-//             todosLosUsuarios.push(nuevoUsuario);
-//             localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
-//             window.location.reload();
-//         }
-//     }
-// });
-
-
-todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
-console.log(todosLosUsuarios)
 //Funciona
 inicio.addEventListener('submit', () => {
     let inicio_nombre = inicio.querySelector(".contenedor-inicio_input-nombre").value;
