@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Somos una Tienda Dedicada a La Tecnologia de Alta Calida con Envios a Todo el Pais y Con mas de 20 años de Experiencia">
+<meta name="keywords" content="Hardware,Tienda Tecnologia,Envios,Garantias,PC,Gamers,Calidad,Promociones,">
+<!--Titulo Principal -->
+<title>El Refugio Del Hardware - Index </title>
+<!--Logo de La Web -->
+<link rel="icon" type="image/png" sizes="32x32" href="./img/Mi proyecto.png">
+<!-- Boostrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!-- CSS -->
+<link rel="stylesheet" href="./css/stylos.css">
+</head>
+<body>
+<!--Informacion de la pagina y sus Redes -->
+<div class="top_header">
+    <div class="top_header-informacion">
+    <div class="top_header-titulo">
+        <h1>El Refugio Del Hardware</h1>
+    </div>
+    <div class="contactos-top_header">
+        <img src="./img/carta.png" alt="logo-de-una-carta">
+        <p>
+            Email: Isaiasmucha@gmail.com
+        </p>
+        <img src="./img/llamada-telefonica.png" alt="logo-de-un-telefono">
+        <p>
+            Telf: 2236211929
+        </p>
+    </div>
+    <ul class="top_header-redes">
+        <li><a href="https://api.whatsapp.com/send?phone=5492236211929"><img class="wp" src="./img/whatsapp.png" alt="logo-de-whatsapp"></a></li>
+        <li><a href="https://www.facebook.com/isaiass.mucha"><img class="fb" src="./img/facebook (2).png" alt="logo-de-facebook"></a></li>
+        <li><a href="https://www.youtube.com/channel/UCoE7bShhyc2g2Wdu2F6YEuw"><img class="yt" src="./img/youtube.png" alt="logo-de-youtube"></a></li>
+        <li><a href="https://www.instagram.com/muchaisaias/"><img class="insta" src="./img/instagram (2).png" alt="logo-de-instagram"></a></li>
+        <li><a href="https://twitter.com/?lang=es"><img class="tw" src="./img/gorjeo.png" alt="logo-de-twitter"></a></li>
+        <li><a href="https://ar.linkedin.com/?trk=guest_homepage-basic_nav-header-logo"><img class="lnkd" src="./img/linkedin (1).png" alt="logo-de-linkedin"></a></li>
+    </ul>
+    </div>
+    <!--logo de la Tienda y Buscador -->
+    <div class="body_header">
+    <a href="./index.html"><img src="./img/Mi proyecto.png" alt="logo-de-la-tienda"></a>
+    <form id="formularioBusqueda"> 
+        <input class="input" type="search" placeholder="Buscar Productos..." id="buscador">
+        <input class="boton-input-header" type="submit">
+    </form>
+    <ul id="listaProductos">
+      <!-- Aquí se mostrarán los resultados del buscador -->
+    </ul>
+    <template class="template-login">
+        <ul class="content-login">
+            <li class="li-categorias2"> 
+            <a href="./page/mycuenta.html"><img src="./img/grupo.png" alt=""></a>
+            <ul class="link-mycuenta">
+                <li><a href="./page/mycuenta.html">Mycuenta</a></li>
+                <li><a href="">Pedidos</a></li>
+                <li><a href="">Direccion</a></li>
+                <li><button class="cerrar">Cerar Sesion</button></li>
+            </ul>
+            </li>
+        </ul>
+    </template>
+    <div class="contenedor-login">
+    <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal20">Login</button>
+    <div class="modal fade index-modal" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h2 class="modal-title fs-5" id="exampleModalLabel20">Acceder</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form action="" class="contenedor-inicio">
+                <h2>Iniciar Sesion</h2>
+                <input type="text" name="" id="" placeholder="nombre" class="contenedor-inicio_input-nombre" >
+                <input type="password" placeholder="Contraseña" required class="contenedor-inicio_input-contraseña">
+                <input type="submit">
+            </form>
+            <form action="" class="contenedor-registro">
+                <h2>Registro</h2>
+                <input type="text" name="" id="cuenta" placeholder="nombre" required class="contenedor-registro_input-nombre">
+                <input type="password" placeholder="Contraseña" required class="contenedor-registro_input-contraseña">
+                <input type="email" name="" id="gmail" placeholder="email"class="contenedor-registro_input-email">
+                <input type="submit" class="boton-registro">
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  <div class="contenedor-carrito"><a href="./page/carrito.html"><img src="./img/carro-de-la-compra.png" alt=""></a></div>
+  </div>
+</div>
+<header class="header">
+    <!--Navbar de la pagina -->
+    <nav class="header-nav">
+    <!--Logo de la Tienda,Se va a mostrar en 780px en el navbar-->
+    <a href="./index.html"><img src="./img/Mi proyecto.png" alt="logo-de-la-tienda"></a>
+    <input class="checkbox" type="checkbox">
+    <img class="menu abrir" src="./img/menu.png" alt="">
+    <img class="menu cerrar" src="./img/x.png" alt="">
+    <!--lista de link -->
+    <ul class="nav-ul row w-100" >
+        <li class="nav-ul-li col-xl-2 col-lg-2 col-md-12 li-categorias">
+        <a href="#">
+            <img src="./img/categorias.png" alt="">
+            Categorias
+            <img class="flecha" src="./img/flecha-hacia-abajo-para-navegar.png" alt="foto-de-flecha-hacia-abajo">
+        </a>
+        <!-- Lista De Categorias -->
+        <ul>
+            <li><a href="./page/Tienda.html">Accesorios</a></li>
+            <li><a href="./page/Tienda.html">Notebooks</a></li>
+            <li><a href="./page/Tienda.html">PcArmadas</a></li>
+            <li><a href="./page/Tienda.html">Hardware</a></li>
+            <li><a href="./page/Tienda.html">Monitores</a></li>
+            <li><a href="./page/Tienda.html">Software</a></li>
+            <li><a href="./page/Tienda.html">Conectividad</a></li>
+        </ul>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+        <a href="./index.html">
+            <img src="./img/casa.png" alt="logo-de-una-casa">
+            Inicio
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./page/Tienda.html">
+            <img src="./img/tienda-online.png" alt="logo-de-una-tienda">
+            Tienda
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./page/nosotros.html">
+            <img src="./img/burbuja-de-dialogo.png" alt="logo-de-burbuja-de-dialogo">
+            Nosotros
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./page/ayuda.html ">
+            <img src="./img/ayudar.png" alt="logo-de-ayudar">
+            Ayuda
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./page/Contactos.html">
+            <img src="./img/auriculares-con-microfono (1).png" alt="logo-de-auriculares-con-microfono">
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!--Es un Carousel de Imagenes con 5 Imagenes -->
+    <section class="index-carousel">
+      <div id="carouselExampleIndicators" class="carousel slide conteiner-sm">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner conteiner-imagenes">
+          <div class="carousel-item active">
+            <img src="./img/130.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/74.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/143.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/126.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/138.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!--Informacion de la web y sus Promociones -->
+    <section class="section-promociones row w-100">
+      <article class="contenedor-envios col-xl-4 col-lg-6">
+        <img src="./img/paquete.png" alt="imagen-de-un-paquete">
+        <div class="div">
+          <h2>ENVÍOS A TODO EL PAÍS</h2>
+          <p>Envío gratis a partir de $ 50.000</p>
+        </div>
+      </article>
+      <article class="contenedor-medios_de_pago col-xl-4 col-lg-6">
+        <img src="./img/cajero-automatico.png" alt="imagen-de-un-cajero-automatico">
+          <div class="div-diferent">
+            <h2>TODOS LOS MEDIOS DE PAGO</h2>
+            <p>Efectivo, Transferencia, Tarjeta de Crédito, Criptomonedas</p>
+          </div>
+      </article>
+      <article class="contenedor-descuentos col-xl-4 col-lg-6">
+        <img src="./img/dinero-en-efectivo.png" alt="imagen-de-dinero-en-efectivo">
+        <div class="div">
+          <h2>DESCUENTOS </h2>
+          <p>
+            En Efectivo Hasta -20%
+            Tarjeta de Debito -15%
+          </p>
+        </div>
+      </article>
+      <article class="contenedor-calidad col-xl-4 col-lg-6">
+        <img src="./img/calidad.png" alt="imagen-de-una-medalla-de-calidad">
+        <div class="div">
+          <h2>PRODUCTOS DE CALIDAD</h2>
+          <p>Productos 100% genuinos con garantía escrita</p>
+        </div>
+      </article>
+    </section>
+    <!--Subtitulo -->
+    <section class="subtitulo-index"> 
+      <h2 class="col-12 titulo-productos">PRODUCTOS DESTACADOS</h2>
+    </section>
+    <!--Productos Principales de La Tienda -->
+    <section class="productos row todos-los-productos">
+      <template class="template-productos">
+        <article class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 contenedor-productos">
+          <div class="conteiner-cards border rounded">
+            <img class="img-productos" src="" alt=""></img>
+            <div>
+              <p class="nombre-producto"></p>
+            </div>
+            <h3 class="precio-producto"></h3>
+            <div class="conteiner-button">
+              <button type="button" class="btn btn-primary cambios btn-agregar-carrito">
+                <img src="./img/carro-de-la-compra.png" alt="foto-de-una-imagen-de-carritos-de-compras">
+              </button>
+              <button type="button" class="btn btn-primary cambios" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./img/ojo-abierto.png" alt="foto-de-un-ojo">
+              </button>
+            </div>
+          </div>
+          <div class="modal fade index-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title fs-5" id="exampleModalLabel">Notebook</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="./img/notebook-asus-intel-celeron-n4020-e410m-4gb-ram-64gb-ssd-windows-11-12-cuotas-sin-interes.jpg" alt="foto-de-una-notebook"></img>
+                  <h2>Notebook Asus E410 Intel Celeron N4020 1.1ghz 4gb 64gb Win10</h2>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </template>
+    </section>
+    <!--carousel automatico de marcas -->
+    <section class="slider">
+      <ul class="slider-track">
+        <li class="slide"><img src="./img/1 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/2 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/3 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/4 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/5 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/6 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/7 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/8 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/9 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/10 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/11 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/12.webp" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/13.webp" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/1 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/2 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/3 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/4 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/5 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/6 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/7 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/8 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/9 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/10 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/11 - copia.png" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/12.webp" alt="imagen-de-una-marca"></li>
+        <li class="slide"><img src="./img/13.webp" alt="imagen-de-una-marca"></li>
+      </ul>
+    </section>
+  </main>
+  <!--final de la web -->
+  <footer class="footer row w-100">
+    <h2 class="col-xl-12">El Refugio Del Hardware</h2>
+    <div class="footer-info col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <h3>Direccion</h3>
+      <p>Rufino Inda 2553 </p>
+      <p>Mar del Plata - Buenos Aires</p>
+      <p>Argentina</p>
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes de 9:00 a 19.00 hs</p>
+      <p>Sabados de 9:00 a 14.00 hs</p>
+      <p>Domingo Cerrado</p>
+    </div>
+    <div class="footer-form col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <form>
+        <input type="email" name="email" placeholder="Introducir Correo Electronico" required>
+        <input type="submit" name="email">
+        <h3>¡ ENTERATE DE NUESTRAS PROMOS !</h3>
+        <p>Suscríbase a nuestro boletín para recibir ofertas de descuentos anticipados e información sobre nuevos productos.</p>
+      </form>
+      <ul class="footer-redes">
+        <li><a href="https://api.whatsapp.com/send?phone=5492236211929"><img class="wp" src="./img/whatsapp.png" alt="logo-de-whatsapp"></a></li>
+        <li><a href="https://www.facebook.com/isaiass.mucha"><img class="fb" src="./img/facebook (2).png" alt="logo-de-facebook"></a></li>
+        <li><a href="https://www.youtube.com/channel/UCoE7bShhyc2g2Wdu2F6YEuw"><img class="yt" src="./img/youtube.png" alt="logo-de-youtube"></a></li>
+        <li><a href="https://www.instagram.com/muchaisaias/"><img class="insta" src="./img/instagram (2).png" alt="logo-de-instagram"></a></li>
+        <li><a href="https://twitter.com/?lang=es"><img class="tw" src="./img/gorjeo.png" alt="logo-de-twitter"></a></li>
+        <li><a href="https://ar.linkedin.com/?trk=guest_homepage-basic_nav-header-logo"><img class="lnkd" src="./img/linkedin (1).png" alt="logo-de-linkedin"></a></li>
+      </ul>
+    </div>
+    <div class="final-footer col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <p>Copyright 2023 © El Refugio del hardware - Powered by: Mar del Plata Digital - Mar del Plata</p>
+    </div>
+  </footer>
+  <!--Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/buscadorIndex.js"></script>
+    <script src="./js/carrito.js"></script>
+</body>
+</html>

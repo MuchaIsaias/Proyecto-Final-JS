@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Somos una tienda con mas de 20 años de Experiencia que Ofrece la mejor calidad,Servicios y Precios">
+  <!--Titulo Principal-->
+  <title>El Refugio Del Hardware - Nosotros</title>
+  <!--Logo de La Web -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/Mi proyecto.png">
+  <!-- Boostrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/stylos.css">
+</head>
+<body>
+  <!--Informacion de la pagina y sus Redes -->
+  <div class="top_header">
+    <div class="top_header-informacion">
+      <div class="top_header-titulo">
+        <h1>El Refugio Del Hardware</h1>
+      </div>
+      <div class="contactos-top_header">
+        <p>
+          <img src="../img/carta.png" alt="logo-de-una-carta">
+          Email: Isaiasmucha@gmail.com
+        </p>
+        <p>
+          <img src="../img/llamada-telefonica.png" alt="logo-de-telefono">
+          Telf: 2236211929
+        </p>
+      </div>
+      <ul class="top_header-redes">
+        <li><a href="https://api.whatsapp.com/send?phone=5492236211929"><img class="wp" src="../img/whatsapp.png" alt="logo-de-whatsapp"></a></li>
+        <li><a href="https://www.facebook.com/isaiass.mucha"><img class="fb" src="../img/facebook (2).png" alt="logo-de-facebook"></a></li>
+        <li><a href="https://www.youtube.com/channel/UCoE7bShhyc2g2Wdu2F6YEuw"><img class="yt" src="../img/youtube.png" alt="logo-de-youtube"></a></li>
+        <li><a href="https://www.instagram.com/muchaisaias/"><img class="insta" src="../img/instagram (2).png" alt="logo-de-instagram"></a></li>
+        <li><a href="https://twitter.com/?lang=es"><img class="tw" src="../img/gorjeo.png" alt="logo-de-twitter"></a></li>
+        <li><a href="https://ar.linkedin.com/?trk=guest_homepage-basic_nav-header-logo"><img class="lnkd" src="../img/linkedin (1).png" alt="logo-de-linkedin"></a></li>
+      </ul>
+    </div>
+    <!--logo de la Tienda y Buscador -->
+    <div class="body_header">
+      <a href="../index.html"><img src="../img/Mi proyecto.png" alt=""></a>
+      <form id="formularioBusqueda">
+        <input class="input" type="search" placeholder="Buscar Productos..." id="buscador">
+        <input class="boton-input-header" type="submit">
+      </form>
+      <ul id="listaProductos">
+        <!-- Aquí se mostrarán los resultados del buscador -->
+      </ul>
+      <template class="template-login">
+        <ul class="content-login">
+            <li class="li-categorias2"> 
+            <a href="../page/mycuenta.html"><img src="../img/grupo.png" alt=""></a>
+            <ul class="link-mycuenta">
+                <li><a href="../page/mycuenta.html">Mycuenta</a></li>
+                <li><a href="">Pedidos</a></li>
+                <li><a href="">Direccion</a></li>
+                <li><button class="cerrar">Cerar Sesion</button></li>
+            </ul>
+            </li>
+        </ul>
+    </template>
+    <div class="contenedor-login">
+      <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal20">Login</button>
+      <div class="modal fade index-modal" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h2 class="modal-title fs-5" id="exampleModalLabel20">Acceder</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <form action="" class="contenedor-inicio">
+                  <h2>Iniciar Sesion</h2>
+                  <input type="text" name="" id="" placeholder="nombre" class="contenedor-inicio_input-nombre" >
+                  <input type="password" placeholder="Contraseña" required class="contenedor-inicio_input-contraseña">
+                  <input type="submit">
+              </form>
+              <form action="" class="contenedor-registro">
+                  <h2>Registro</h2>
+                  <input type="text" name="" id="cuenta" placeholder="nombre" required class="contenedor-registro_input-nombre">
+                  <input type="password" placeholder="Contraseña" required class="contenedor-registro_input-contraseña">
+                  <input type="email" name="" id="gmail" placeholder="email"class="contenedor-registro_input-email">
+                  <input type="submit" class="boton-registro">
+              </form>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+          </div>
+      </div>
+      </div>
+      <div class="contenedor-carrito"><a href="../page/carrito.html"><img src="../img/carro-de-la-compra.png" alt=""></a></div>
+    </div>
+    </div>
+  </div>
+  <header class="header">
+    <!--Navbar de la pagina -->
+    <nav class="header-nav">
+      <!--Logo de la Tienda,Se va a mostrar en 780px en el navbar-->
+      <a href="../index.html"><img src="../img/Mi proyecto.png" alt=""></a>
+      <input class="checkbox" type="checkbox">
+      <img class="menu abrir" src="../img/menu.png" alt="logo-de-tres-barrritas">
+      <img class="menu cerrar" src="../img/x.png" alt="logo-de-una-x">
+      <!--lista de link -->
+      <ul class="nav-ul row w-100" >
+        <li class="nav-ul-li col-xl-2 col-lg-2 col-md-12 li-categorias">
+          <a href="#">
+          <img src="../img/categorias.png" alt="logo-de-categorias">
+          Categorias
+          <img class="flecha" src="../img/flecha-hacia-abajo-para-navegar.png" alt="logo-de-flecha-hacia-abajo">
+          </a>
+          <!-- lista de categorias -->
+          <ul>
+            <li><a href="#">Accesorios</a></li>
+            <li><a href="#">Notebooks</a></li>
+            <li><a href="#">PcArmadas</a></li>
+            <li><a href="#">Hardware</a></li>
+            <li><a href="#">Monitores</a></li>
+            <li><a href="#">Software</a></li>
+            <li><a href="#">Conectividad</a></li>
+          </ul>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="../index.html">
+            <img src="../img/casa.png" alt="logo-de-una-casa">
+            Inicio
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./Tienda.html">
+            <img src="../img/tienda-online.png" alt="logo-de-una-tienda">
+            Tienda
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./nosotros.html">
+            <img src="../img/burbuja-de-dialogo.png" alt="logo-de-una-burbuja-de-dialogo">
+            Nosotros
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./ayuda.html ">
+            <img src="../img/ayudar.png" alt="logo-de-ayuda">
+            Ayuda
+          </a>
+        </li>
+        <li class="nav-ul-li col-xl-2 col-lg-2">
+          <a href="./Contactos.html">
+            <img src="../img/auriculares-con-microfono (1).png" alt="logo-de-auriculares-con-microfono">
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="nosotros-main">
+    <!-- todo sobre la tienda -->
+    <section class="nosotros-section">
+      <article class="nosotros-titulo">
+        <h2>Nosotros</h2>
+      </article>
+      <article class="border nosotros-body">
+        <p>En El Refugio Del Hardware Encontras la mejor oferta en calidad, servicio y precios. Nuestra trayectoria es la mejor garantía que podemos ofrecerle, y la fidelidad de nuestros clientes es nuestra mejor carta de presentación.
+          Le invitamos a conocer más sobre nuestros productos. No dude en contactarnos para poder ofrecerle una atención personalizada. Estaremos complacidos de brindarle la atención y asesoramiento que usted necesita.
+          Nos hemos actualizado y ahora puede comprar ONLINE. Todos nuestros productos y precios para facilitarle su trabajo y ganar en tiempo, algo que hoy es sumamente valioso.
+          Esperamos ser el proveedor que esta buscando.
+        </p>
+      </article>
+      <article class="border nosotros-body">
+        <p>Nos dedicamos a la venta de computadoras, notebooks, hardware y productos periféricos para consumidores particulares, empresas o revendedores.
+          Marcas como Asus, SkullCandy, MSI, Gigabyte, Kingston, Intel, Nvidia, HP, Epson, Samsung y Western Digital nos han hecho sus representantes oficiales en el país.
+          En Full H4rd encontrarás todo lo que compone la PC de tus sueños. Conocemos nuestros productos y por ello te asesoramos para que hagas una compra personalizada a la altura de tus necesidades.
+        </p>
+      </article>
+    </section>
+  </main>
+  <!--Final de la Web -->
+  <footer class="footer row w-100">
+    <h2 class="col-xl-12">El Refugio Del Hardware</h2>
+    <div class="footer-info col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <h3>Direccion</h3>
+      <p>Rufino Inda 2553 </p>
+      <p>Mar del Plata - Buenos Aires</p>
+      <p>Argentina</p>
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes de 9:00 a 19.00 hs</p>
+      <p>Sabados de 9:00 a 14.00 hs</p>
+      <p>Domingo Cerrado</p>
+    </div>
+    <div class="footer-form col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <form>
+        <input type="email" name="email" placeholder="Introducir Correo Electronico" required>
+        <input type="submit" name="email">
+        <h3>¡ ENTERATE DE NUESTRAS PROMOS !</h3>
+        <p>Suscríbase a nuestro boletín para recibir ofertas de descuentos anticipados e información sobre nuevos productos.</p>
+      </form>
+      <ul class="footer-redes">
+        <li><a href="https://api.whatsapp.com/send?phone=5492236211929"><img class="wp" src="../img/whatsapp.png" alt="logo-de-whatsapp"></a></li>
+        <li><a href="https://www.facebook.com/isaiass.mucha"><img class="fb" src="../img/facebook (2).png" alt="logo-de-facebook"></a></li>
+        <li><a href="https://www.youtube.com/channel/UCoE7bShhyc2g2Wdu2F6YEuw"><img class="yt" src="../img/youtube.png" alt="logo-de-youtube"></a></li>
+        <li><a href="https://www.instagram.com/muchaisaias/"><img class="insta" src="../img/instagram (2).png" alt="logo-de-instagram"></a></li>
+        <li><a href="https://twitter.com/?lang=es"><img class="tw" src="../img/gorjeo.png" alt="logo-de-twitter"></a></li>
+        <li><a href="https://ar.linkedin.com/?trk=guest_homepage-basic_nav-header-logo"><img class="lnkd" src="../img/linkedin (1).png" alt="logo-de-linkedin"></a></li>
+      </ul>
+    </div>
+    <div class="final-footer col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <p>Copyright 2023 © El Refugio del hardware - Powered by: Mar del Plata Digital - Mar del Plata</p>
+    </div>
+  </footer>
+  <!--Boostrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="../js/login.js"></script>
+  <script src="../js/buscador.js"></script>
+</body>
+</html>
