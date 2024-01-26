@@ -18,9 +18,9 @@ let clon_login=contenido_login.cloneNode(true)
 fetch('/js/usuarios.json')
     .then(response => response.json())
     .then(data =>{
-    console.log('Usuario actuales:', data)
+    console.log('Usuario actuales:',data)
     })
-    .catch(error => console.error('Error al guardar el usuario:', data));
+    .catch(error => console.error('Error al guardar el usuario:',error));
 
 let url2 = 'http://localhost:4000/crear-usuario';
 

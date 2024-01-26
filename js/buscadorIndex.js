@@ -8,7 +8,7 @@ formularioBusqueda3.addEventListener('submit',(evt)=>{
     evt.preventDefault()
     let busqueda3 = buscadorInput3.value.toLowerCase();
 
-    fetch("/js/productos.json")
+    fetch("productos.json")
     .then(response =>response.json())
     .then(data=>{
         let productosFiltrados = data.filter(producto =>
@@ -22,7 +22,7 @@ formularioBusqueda3.addEventListener('submit',(evt)=>{
 });
 
 
-fetch("/js/productos.json")
+fetch("productos.json")
     .then(response =>response.json())
     .then(data=>{
         render_Productos2(data)
