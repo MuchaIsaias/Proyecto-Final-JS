@@ -28,7 +28,7 @@ registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
     let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
-    fetch('usuarios.json')
+    fetch('../js/usuarios.json')
         .then(response => response.json())
         .then(data =>{
             console.log(data)
