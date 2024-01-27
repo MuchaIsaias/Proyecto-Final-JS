@@ -11,6 +11,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",  
+    "postinstall": "npm install && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

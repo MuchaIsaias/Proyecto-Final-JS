@@ -15,7 +15,7 @@ let body_header=document.querySelector(".body_header")
 let contenido_login = template_login.content
 let clon_login=contenido_login.cloneNode(true)
 
-fetch('./js/usuarios.json')
+fetch('/js/usuarios.json')
     .then(response => response.json())
     .then(data =>{
     console.log('Usuario actuales:',data)
@@ -28,7 +28,7 @@ registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
     let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
-    fetch('./js/usuarios.json')
+    fetch('/js/usuarios.json')
         .then(response => response.json())
         .then(data =>{
             console.log(data)
@@ -59,23 +59,13 @@ registro.addEventListener('submit', (evt) => {
 });
 
 //Funciona
-inicio.addEventListener('submit', () => {
+
+inicio.addEventListener('submit', (evt  ) => {
+    evt.preventDefault();
     let inicio_nombre = inicio.querySelector(".contenedor-inicio_input-nombre").value;
     let inicio_contraseña = inicio.querySelector(".contenedor-inicio_input-contraseña").value;
-    todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
     let usuarioEncontrado = false;
-    todosLosUsuarios.forEach(usuario => {
-        if (inicio_nombre === usuario.nombre && inicio_contraseña === usuario.contraseña) {
-            usuarioEncontrado = true;
-            let idUsuarioEncontrado = usuario.id;
-            sessionStorage.setItem('id', idUsuarioEncontrado);
-            sessionStorage.setItem('isLoggedIn', 'true');
-        }
-    });
-    if (!usuarioEncontrado) {
-        alert("Cuenta Incorrecta");
-        sessionStorage.setItem('isLoggedIn', 'false');
-    }
+    loader(inicio_nombre,inicio_contraseña);
 });
 
 window.addEventListener('load', () => {
@@ -96,6 +86,30 @@ window.addEventListener('load', () => {
         }
     }
 }); 
+
+async function loader (inicio_nombre,inicio_contraseña) {
+        try {
+            let resp = await fetch ('../js/usuarios.json');
+            let data = await resp.json();
+            let usuarioEncontrado= false
+            console.log(data)
+            data.forEach(usuario => {
+                if (inicio_nombre === usuario.nombre && inicio_contraseña === usuario.contraseña) {
+                    usuarioEncontrado = true;
+                    let idUsuarioEncontrado = usuario.id;
+                    sessionStorage.setItem('id', idUsuarioEncontrado);
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    window.location.reload();
+                }
+            });
+            if (!usuarioEncontrado) {
+                alert("Cuenta Incorrecta");
+                sessionStorage.setItem('isLoggedIn', 'false');
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 function obtenerIdUsuario() {
     let idUsuarioRecuperar= sessionStorage.getItem('id')
