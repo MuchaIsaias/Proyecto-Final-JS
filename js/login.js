@@ -15,7 +15,7 @@ let body_header=document.querySelector(".body_header")
 let contenido_login = template_login.content
 let clon_login=contenido_login.cloneNode(true)
 
-fetch('usuarios.json')
+fetch('../js/usuarios.json')
     .then(response => response.json())
     .then(data =>{
     console.log('Usuario actuales:',data)
@@ -89,7 +89,7 @@ window.addEventListener('load', () => {
 
 async function loader (inicio_nombre,inicio_contraseña) {
         try {
-            let resp = await fetch ('usuarios.json');
+            let resp = await fetch ('../js/usuarios.json');
             let data = await resp.json();
             let usuarioEncontrado= false
             console.log(data)
