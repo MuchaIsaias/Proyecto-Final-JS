@@ -15,7 +15,7 @@ let body_header=document.querySelector(".body_header")
 let contenido_login = template_login.content
 let clon_login=contenido_login.cloneNode(true)
 
-fetch('/js/usuarios.json')
+fetch('usuarios.json')
     .then(response => response.json())
     .then(data =>{
     console.log('Usuario actuales:',data)
@@ -28,7 +28,7 @@ registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
     let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
-    fetch('/js/usuarios.json')
+    fetch('usuarios.json')
         .then(response => response.json())
         .then(data =>{
             console.log(data)
@@ -89,7 +89,7 @@ window.addEventListener('load', () => {
 
 async function loader (inicio_nombre,inicio_contraseña) {
         try {
-            let resp = await fetch ('../js/usuarios.json');
+            let resp = await fetch ('usuarios.json');
             let data = await resp.json();
             let usuarioEncontrado= false
             console.log(data)
