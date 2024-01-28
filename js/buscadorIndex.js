@@ -6,7 +6,7 @@ class Usuario {
         this.carrito = [];
     }
 }
-
+let carrito_sin_login=[]
 let registro= document.querySelector(".contenedor-registro");
 let inicio= document.querySelector(".contenedor-inicio")
 let login= document.querySelector(".contenedor-login")
@@ -15,57 +15,56 @@ let body_header=document.querySelector(".body_header")
 let contenido_login = template_login.content
 let clon_login=contenido_login.cloneNode(true)
 
-fetch('./js/usuarios.json')
-    .then(response => response.json())
-    .then(data =>{
-    console.log('Usuario actuales:',data)
-    })
-    .catch(error => console.error('Error al guardar el usuario:',error));
-
-let url2 = 'http://localhost:4000/crear-usuario';
-
 registro.addEventListener('submit', (evt) => {
     evt.preventDefault();
+
     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
     let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
-    fetch('usuarios.json')
-        .then(response => response.json())
-        .then(data =>{
-            console.log(data)
-            let numberID = data.length + 1;
+    
+    let todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    if (todosLosUsuarios.length === 0) {
+        let numberID = todosLosUsuarios.length + 1;
+        let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
+        todosLosUsuarios.push(nuevoUsuario);
+        localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
+        window.location.reload();
+    } else {
+        let usuarioExistente = todosLosUsuarios.find(usuario => usuario.nombre === registro_nombre);
+
+        if (usuarioExistente) {
+            alert("Nombre de usuario ya existente");
+        } else {
+            let numberID = todosLosUsuarios.length + 1;
             let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
-            console.log( JSON.stringify(nuevoUsuario))
-            let opciones = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(nuevoUsuario),
-            };
-            let url2 = 'http://localhost:4000/crear-usuario';
-            let usuarioExistente = data.find(usuario => usuario.nombre === registro_nombre);
-            if (usuarioExistente) {
-                alert("Nombre de usuario ya existente");
-            }else{
-                fetch(url2,opciones)
-                .then(response => response)
-                .then(data =>{
-                    console.log('Usuario guardado exitosamente:', data)
-                    window.location.reload();
-                })
-                .catch(error => console.error('Error al guardar el usuario:', error));
-            }
-    })
+            todosLosUsuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
+            window.location.reload();
+        }
+    }
 });
+todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
+console.log(todosLosUsuarios)
 
 //Funciona
 
-inicio.addEventListener('submit', (evt  ) => {
-    evt.preventDefault();
+inicio.addEventListener('submit', () => {
     let inicio_nombre = inicio.querySelector(".contenedor-inicio_input-nombre").value;
     let inicio_contraseña = inicio.querySelector(".contenedor-inicio_input-contraseña").value;
+    todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
     let usuarioEncontrado = false;
-    loader(inicio_nombre,inicio_contraseña);
+    todosLosUsuarios.forEach(usuario => {
+        if (inicio_nombre === usuario.nombre && inicio_contraseña === usuario.contraseña) {
+            usuarioEncontrado = true;
+            let idUsuarioEncontrado = usuario.id;
+            sessionStorage.setItem('id', idUsuarioEncontrado);
+            sessionStorage.setItem('isLoggedIn', 'true');
+        }
+    });
+    if (!usuarioEncontrado) {
+        alert("Cuenta Incorrecta");
+        sessionStorage.setItem('isLoggedIn', 'false');
+    }
 });
 
 window.addEventListener('load', () => {
@@ -86,30 +85,6 @@ window.addEventListener('load', () => {
         }
     }
 }); 
-
-async function loader (inicio_nombre,inicio_contraseña) {
-        try {
-            let resp = await fetch ('./js/usuarios.json');
-            let data = await resp.json();
-            let usuarioEncontrado= false
-            console.log(data)
-            data.forEach(usuario => {
-                if (inicio_nombre === usuario.nombre && inicio_contraseña === usuario.contraseña) {
-                    usuarioEncontrado = true;
-                    let idUsuarioEncontrado = usuario.id;
-                    sessionStorage.setItem('id', idUsuarioEncontrado);
-                    sessionStorage.setItem('isLoggedIn', 'true');
-                    window.location.reload();
-                }
-            });
-            if (!usuarioEncontrado) {
-                alert("Cuenta Incorrecta");
-                sessionStorage.setItem('isLoggedIn', 'false');
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
 function obtenerIdUsuario() {
     let idUsuarioRecuperar= sessionStorage.getItem('id')
@@ -175,7 +150,6 @@ function agregarEventos2() {
     let botones_productos = document.querySelectorAll('.btn-agregar-carrito');
     botones_productos.forEach(function (boton) {
         boton.addEventListener('click', function (  ) {
-            console.log("hola");
             let productIdd = this.closest(".contenedor-productos").dataset.productId;
             console.log(productIdd);
             agregarAlCarrito(productIdd);
@@ -183,43 +157,24 @@ function agregarEventos2() {
     });
 }
 async function agregarAlCarrito(productId) {
-    try {
-        let userId = obtenerIdUsuario();
-        let response = await fetch('./js/usuarios.json');
-        let data = await response.json();
+    let userId = obtenerIdUsuario();
+    let producto = await obtenerProductoPorId(productId);
 
-        let usuario = data.find(user => user.id === userId);
+    if (userId) {
+        let usuariosGuardados = localStorage.getItem('usuarios');
+        let todosLosUsuarios = JSON.parse(usuariosGuardados);
+        let usuarioEncontrado = todosLosUsuarios.find(usuario => usuario.id === userId);
 
-        if (usuario) {
-            let producto = await obtenerProductoPorId(productId);
-
-            if (producto) {
-                usuario.carrito.push(producto);
-
-                // Actualizar solo el usuario en el servidor
-                let updateUrl =`http://localhost:4000/actualizar-carrito/${userId}`;
-
-                await fetch(updateUrl, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ carrito: usuario.carrito }),
-                });
-
-                console.log(`Producto agregado al carrito de ${usuario.nombre}`);
-                console.log(data)
-            } else {
-                console.error(`Producto con ID ${productId} no encontrado.`);
-            }
+        if (usuarioEncontrado) {
+            usuarioEncontrado.carrito.push(producto);
+            localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
         } else {
-            let producto = await obtenerProductoPorId(productId);
-            carrito_sin_login.push(producto);
-            sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
-            console.log(carrito_sin_login);
+            console.error('Usuario no encontrado');
         }
-    } catch (error) {
-        console.error('Error al agregar al carrito:', error);
+    } else {
+        carrito_sin_login.push(producto);
+        sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
+        console.log(carrito_sin_login);
     }
 }
 

@@ -4,15 +4,6 @@
 let isLoggedIn = sessionStorage.getItem('isLoggedIn');
 let carrito_sin_login_guardado = JSON.parse(sessionStorage.getItem('carritos'))
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetch("/js/usuarios.json")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            localStorage.setItem("usuarios",JSON.stringify(data))
-        })
-        .catch(error => console.log(error));
-});
 
 if (isLoggedIn==="true") {
     let totalPrecio=0
@@ -30,7 +21,6 @@ if (isLoggedIn==="true") {
         template_productos_carrito.querySelector(".nombre-producto").innerText=elm.nombre;
         template_productos_carrito.querySelector(".precio-producto").innerText="$"+elm.precio;
         let rutaOriginal = elm.img;
-        console.log(rutaOriginal)
         let nuevaRuta = rutaOriginal.replace(/^(.\/|..\/)/, "../");
         template_productos_carrito.querySelector(".img-productos").src = nuevaRuta;
         contenedor_productos_carrito.append(template_productos_carrito);
@@ -55,7 +45,7 @@ if (isLoggedIn==="true") {
         template_productos_carrito.querySelector(".nombre-producto").innerText=elm.nombre;
         template_productos_carrito.querySelector(".precio-producto").innerText="$"+elm.precio;
         let rutaOriginal = elm.img;
-        let nuevaRuta = rutaOriginal.replace("./", "../") || rutaOriginal.replace("../", "../");  
+        let nuevaRuta = rutaOriginal.replace(/^(.\/|..\/)/, "../");
         template_productos_carrito.querySelector(".img-productos").src = nuevaRuta;
         contenedor_productos_carrito.append(template_productos_carrito);
         let { precio } = elm;

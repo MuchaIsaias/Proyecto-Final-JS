@@ -38,43 +38,24 @@ function agregarEventos() {
     });
 }
 async function agregarAlCarrito(productId) {
-    try {
-        let userId = obtenerIdUsuario();
-        let response = await fetch('../js/usuarios.json');
-        let data = await response.json();
+    let userId = obtenerIdUsuario();
+    let producto = await obtenerProductoPorId(productId);
 
-        let usuario = data.find(user => user.id === userId);
+    if (userId) {
+        let usuariosGuardados = localStorage.getItem('usuarios');
+        let todosLosUsuarios = JSON.parse(usuariosGuardados);
+        let usuarioEncontrado = todosLosUsuarios.find(usuario => usuario.id === userId);
 
-        if (usuario) {
-            let producto = await obtenerProductoPorId(productId);
-
-            if (producto) {
-                usuario.carrito.push(producto);
-
-                // Actualizar solo el usuario en el servidor
-                let updateUrl =`http://localhost:4000/actualizar-carrito/${userId}`;
-
-                await fetch(updateUrl, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ carrito: usuario.carrito }),
-                });
-
-                console.log(`Producto agregado al carrito de ${usuario.nombre}`);
-                console.log(data)
-            } else {
-                console.error(`Producto con ID ${productId} no encontrado.`);
-            }
+        if (usuarioEncontrado) {
+            usuarioEncontrado.carrito.push(producto);
+            localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
         } else {
-            let producto = await obtenerProductoPorId(productId);
-            carrito_sin_login.push(producto);
-            sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
-            console.log(carrito_sin_login);
+            console.error('Usuario no encontrado');
         }
-    } catch (error) {
-        console.error('Error al agregar al carrito:', error);
+    } else {
+        carrito_sin_login.push(producto);
+        sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
+        console.log(carrito_sin_login);
     }
 }
 

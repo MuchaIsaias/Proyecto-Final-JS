@@ -8,10 +8,9 @@
   "name": "proyecto-tienda",
   "version": "1.0.0",
   "description": "una tienda de partes de pc",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",  
-    "postinstall": "npm install && npm start",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -20,5 +19,8 @@
     "pc"
   ],
   "author": "isaias mucha",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }
