@@ -40,7 +40,25 @@ function agregarEventos() {
 async function agregarAlCarrito(productId) {
     let userId = obtenerIdUsuario();
     let producto = await obtenerProductoPorId(productId);
-
+    Toastify({
+        text:"Producto agregado",
+        duration:3000,
+        close:true,
+        gravity:"top",
+        position:"right",
+        stopOnFocus:true,
+        style:{
+            background:"linear-gradient(to righ,#4b33a8,#785ce9)",
+            borderRadius:"2rem",
+            textTransform:"uppercase",
+            fontSize:"1.5rem"
+        },
+        offset: {
+            x: "5rem",
+            y: "5rem",
+        },
+        oneClick: function(){}
+    }).showToast();
     if (userId) {
         let usuariosGuardados = localStorage.getItem('usuarios');
         let todosLosUsuarios = JSON.parse(usuariosGuardados);
@@ -53,6 +71,7 @@ async function agregarAlCarrito(productId) {
             console.error('Usuario no encontrado');
         }
     } else {
+        let carrito_sin_login =JSON.parse(sessionStorage.getItem('carritos'))
         carrito_sin_login.push(producto);
         sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
         console.log(carrito_sin_login);
