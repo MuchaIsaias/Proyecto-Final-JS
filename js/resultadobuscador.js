@@ -49,7 +49,6 @@ let formularioBusqueda2 = document.getElementById('formularioBusqueda');
 let buscadorInput2 = document.getElementById('buscador');
 let listaProductos2 = document.getElementById('listaProductos');
 
-// Función para manejar la búsqueda y actualizar la lista de productos
 formularioBusqueda2.addEventListener('submit',(evt)=>{
     evt.preventDefault()
     let busqueda2 = buscadorInput2.value.toLowerCase();
