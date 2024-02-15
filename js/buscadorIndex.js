@@ -191,7 +191,8 @@ async function agregarAlCarrito(productId) {
             console.error('Usuario no encontrado');
         }
     } else {
-        let carrito_sin_login=JSON.parse(sessionStorage.getItem('carritos'))
+        let carrito_sin_login = JSON.parse(sessionStorage.getItem('carritos')) || [];
+        console.log(producto)
         carrito_sin_login.push(producto);
         sessionStorage.setItem('carritos', JSON.stringify(carrito_sin_login));
         console.log(carrito_sin_login);
